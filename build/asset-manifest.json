@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Dev-Temmy/facerecognitionbrain/static/css/main.5f21c3c7.chunk.css",
-    "main.js": "/Dev-Temmy/facerecognitionbrain/static/js/main.da648860.chunk.js",
-    "main.js.map": "/Dev-Temmy/facerecognitionbrain/static/js/main.da648860.chunk.js.map",
-    "runtime-main.js": "/Dev-Temmy/facerecognitionbrain/static/js/runtime-main.29c17a80.js",
-    "runtime-main.js.map": "/Dev-Temmy/facerecognitionbrain/static/js/runtime-main.29c17a80.js.map",
-    "static/css/2.31461e4f.chunk.css": "/Dev-Temmy/facerecognitionbrain/static/css/2.31461e4f.chunk.css",
-    "static/js/2.0d236d47.chunk.js": "/Dev-Temmy/facerecognitionbrain/static/js/2.0d236d47.chunk.js",
-    "static/js/2.0d236d47.chunk.js.map": "/Dev-Temmy/facerecognitionbrain/static/js/2.0d236d47.chunk.js.map",
-    "static/js/3.616b869b.chunk.js": "/Dev-Temmy/facerecognitionbrain/static/js/3.616b869b.chunk.js",
-    "static/js/3.616b869b.chunk.js.map": "/Dev-Temmy/facerecognitionbrain/static/js/3.616b869b.chunk.js.map",
-    "index.html": "/Dev-Temmy/facerecognitionbrain/index.html",
-    "static/css/2.31461e4f.chunk.css.map": "/Dev-Temmy/facerecognitionbrain/static/css/2.31461e4f.chunk.css.map",
-    "static/css/main.5f21c3c7.chunk.css.map": "/Dev-Temmy/facerecognitionbrain/static/css/main.5f21c3c7.chunk.css.map",
-    "static/js/2.0d236d47.chunk.js.LICENSE.txt": "/Dev-Temmy/facerecognitionbrain/static/js/2.0d236d47.chunk.js.LICENSE.txt",
-    "static/media/brain.b6394610.png": "/Dev-Temmy/facerecognitionbrain/static/media/brain.b6394610.png"
+    "main.css": "/SmartBrainFront-End/static/css/main.5f21c3c7.chunk.css",
+    "main.js": "/SmartBrainFront-End/static/js/main.cf9e3b53.chunk.js",
+    "main.js.map": "/SmartBrainFront-End/static/js/main.cf9e3b53.chunk.js.map",
+    "runtime-main.js": "/SmartBrainFront-End/static/js/runtime-main.c931a9d9.js",
+    "runtime-main.js.map": "/SmartBrainFront-End/static/js/runtime-main.c931a9d9.js.map",
+    "static/css/2.31461e4f.chunk.css": "/SmartBrainFront-End/static/css/2.31461e4f.chunk.css",
+    "static/js/2.f65351dd.chunk.js": "/SmartBrainFront-End/static/js/2.f65351dd.chunk.js",
+    "static/js/2.f65351dd.chunk.js.map": "/SmartBrainFront-End/static/js/2.f65351dd.chunk.js.map",
+    "static/js/3.d3b2b41b.chunk.js": "/SmartBrainFront-End/static/js/3.d3b2b41b.chunk.js",
+    "static/js/3.d3b2b41b.chunk.js.map": "/SmartBrainFront-End/static/js/3.d3b2b41b.chunk.js.map",
+    "index.html": "/SmartBrainFront-End/index.html",
+    "static/css/2.31461e4f.chunk.css.map": "/SmartBrainFront-End/static/css/2.31461e4f.chunk.css.map",
+    "static/css/main.5f21c3c7.chunk.css.map": "/SmartBrainFront-End/static/css/main.5f21c3c7.chunk.css.map",
+    "static/js/2.f65351dd.chunk.js.LICENSE.txt": "/SmartBrainFront-End/static/js/2.f65351dd.chunk.js.LICENSE.txt",
+    "static/media/brain.b6394610.png": "/SmartBrainFront-End/static/media/brain.b6394610.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.29c17a80.js",
+    "static/js/runtime-main.c931a9d9.js",
     "static/css/2.31461e4f.chunk.css",
-    "static/js/2.0d236d47.chunk.js",
+    "static/js/2.f65351dd.chunk.js",
     "static/css/main.5f21c3c7.chunk.css",
-    "static/js/main.da648860.chunk.js"
+    "static/js/main.cf9e3b53.chunk.js"
   ]
 }

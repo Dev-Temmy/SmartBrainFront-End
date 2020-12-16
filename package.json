@@ -1,6 +1,6 @@
 {
-  "name": "facerecognitionbrain",
-  "homepage": "https://github.com/Dev-Temmy/facerecognitionbrain",
+  "name": "SmartBrainFront-End",
+  "homepage": "https://dev-temmy.github.io/SmartBrainFront-End/.",
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
