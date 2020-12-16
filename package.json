@@ -1,8 +1,7 @@
 {
   "name": "facerecognitionbrain",
-  "homepage": "https://github.com/Dev-Temmy/facerecognitionbrain.git",
+  "homepage": "https://github.com/Dev-Temmy/facerecognitionbrain",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.2",
@@ -19,10 +18,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [

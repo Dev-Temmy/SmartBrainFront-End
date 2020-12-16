@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
+//import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
@@ -14,7 +14,7 @@ import Rank from './components/Rank/Rank';
 // const app = new Clarifai.App({
 // apiKey: 'be52b48c98db41f8929d9dd47e10a291'
 // });
-const app = new Clarifai.App({apiKey: 'be52b48c98db41f8929d9dd47e10a291'});
+//const app = new Clarifai.App({apiKey: 'be52b48c98db41f8929d9dd47e10a291'});
 
 const particlesOptions = {
         particles: {
@@ -25,19 +25,45 @@ const particlesOptions = {
           }
               }
             }
+//to initialize the state for different users
+const initialState = {
+      input: '',
+      imageUrl: '',
+      box: {},
+      route: 'signin',
+      isSignedIn: false,
+      user:{
+          id: '',
+          name:'',
+          email: ' ',
+          entries: 0,
+          joined: ''
+      }
+    }
+
 
 class App extends Component {
   //to get information from Detect button
   constructor(){
     super();
-    this.state= {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false
-    }
+    this.state= initialState;
   }
+
+  loadUser=(data)=> {
+    this.setState({user:{
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          entries: data.entries,
+          joined: data.joined
+      }})
+  }
+
+  /*componentDidMount() { //for testing the connection between frontend and backend
+    fetch('http://localhost:3000')
+    .then(response => response.json())
+    .then(console.log) 
+} */
 
   calculateFaceLocation= (data)=> {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -62,23 +88,43 @@ class App extends Component {
   }
 
   onButtonSubmit = ()=> {
-    this.setState({imageUrl:this.state.input}) 
-    app.models.predict(
-    Clarifai.FACE_DETECT_MODEL, 
-    this.state.input)
-    .then(response =>
-    this.displayFaceBox(this.calculateFaceLocation(response)))
+    this.setState({imageurl:this.state.input})
+      fetch('http://localhost:3000/imageurl' , {
+          method: 'post', //this is 'get' by default
+          headers: {'Content-Type': 'application/json'},
+          body:JSON.stringify({
+          input: this.state.input
+        }) } )
+      .then(response=> response.json())
+
+    // app.models.predict(
+    // Clarifai.FACE_DETECT_MODEL, 
+    // this.state.input)
+    .then(response => {
+      if (response) {
+        fetch('http://localhost:3000/image' , {
+          method: 'put', //this is 'get' by default
+          headers: {'Content-Type': 'application/json'},
+          body:JSON.stringify({
+          id: this.state.user.id
+        }) } )
+        .then (response => response.json())
+        .then(count => {
+          this.setState(Object.assign(this.state.user, {entries:count}))
+        })
+        .catch(console.log) //for error handling
+      }
+    this.displayFaceBox(this.calculateFaceLocation(response))}) 
    // do something with response
   .catch(err=> console.log(err)); // there was an error
   }
 
   onRouteChange = (route)=> {
-    if(route === 'signout') { this.setState({isSignedIn:false})}
+    if(route === 'signout') { this.setState(initialState)}
     else if(route==='home') {this.setState({isSignedIn:true})}
     this.setState({route: route}); //changes route to home when sign in and sign out
   }
-
-  render() {
+render() {
   return (
     <div className="App">
           <Particles className= 'particles' 
@@ -88,20 +134,19 @@ class App extends Component {
         {this.state.route=== 'home'
           ? <div>
           <Logo/> 
-          <Rank/>
+          <Rank name= {this.state.user.name} entries={this.state.user.entries}/>
           <ImageLinkForm 
           onInputChange={this.onInputChange} 
           onButtonSubmit={this.onButtonSubmit}/>
           <FaceRecognition box ={this.state.box} imageUrl={this.state.input} />
           </div>
           : (this.state.route === 'signin' 
-          ? <SignIn onRouteChange = {this.onRouteChange}/>
-          : <Register onRouteChange = {this.onRouteChange}/>
+          ? <SignIn loadUser={this.loadUser} onRouteChange = {this.onRouteChange}/>
+          : <Register loadUser= {this.loadUser} onRouteChange = {this.onRouteChange}/>
           ) // a function to redirect when signed in
         }
     </div>
     );
   }
 }
-
 export default App;
